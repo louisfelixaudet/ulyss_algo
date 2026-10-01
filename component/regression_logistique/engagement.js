@@ -76,7 +76,7 @@ const engagementQuizz = (nbQuizzRepondu, nbQuizzMontrer) => (nbQuizzRepondu / nb
     = 527.45;
 */ 
 
-export default function engagement(like, view, comPos, comNeg, partage, engagementQuizz, age) {
+export default function engagement(like, view, comPos, comNeg, partage, nbQuizzRepondu, nbQuizzMontrer, age) {
     return (like * params.COEFLIKE +
 
     view * params.COEFVIEW + 
@@ -85,5 +85,5 @@ export default function engagement(like, view, comPos, comNeg, partage, engageme
 
     partage * params.COEFPARTAGE + 
 
-    engagementQuizz * params.COEFQUIZZ ) / age * params.COEFAGE;
+    engagementQuizz(nbQuizzRepondu, nbQuizzMontrer) * params.COEFQUIZZ ) / age * params.COEFAGE;
 }

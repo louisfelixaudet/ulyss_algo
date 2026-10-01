@@ -3,4 +3,6 @@
 */
 
 
-export let dictWord = {}
+export let dictWordTF = []
+export let dictWordIDF = {}
+export let dictWordTF_IDF = {}
