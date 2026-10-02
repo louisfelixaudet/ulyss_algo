@@ -1,6 +1,6 @@
 // fonction
 // token message
-export function tokenisation(message) {
+function tokenisation(message) {
   return message.toLowerCase().split(/\s+/).filter(Boolean);
 }
 
@@ -48,7 +48,7 @@ function plusFrequent(labels) {
 }
 
 // prediction
-export function knnPrediction(message, data, k) {
+export default function knnPrediction(vocabulaire, message, data, k) {
   const vecteurM = vectorisation(message, vocabulaire);
   const listeDU = [];
   const listephrase = [];

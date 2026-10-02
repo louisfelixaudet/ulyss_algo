@@ -1,4 +1,4 @@
-import * as knn from "./component/KNN/fonctionKNN.js" 
+import { knnPrediction as knn } from "./component/KNN/fonctionKNN.js";
 // cree un vocabulaire
 const dossier = [];
 
@@ -14,4 +14,4 @@ const vocabulaire = [...new Set(dossier)].sort();
 //console.log(vectorisation(data[2][0], vocabulaire));
 //console.log(tokenisation(data[2][0]));
 let message = "tout est faux!!!";
-console.log(knn.knnPrediction(message, data, 3));
+console.log(knn.knnPrediction(vocabulaire, message, data, 3));
