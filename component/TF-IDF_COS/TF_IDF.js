@@ -46,7 +46,6 @@ import * as data from '../../param/paramTF_IDF_COS/paramTFIDF.js';
 */
 
 function cleanText(text) {
-    return text;
     return text.replace(/['’]/g, ' ')
         .replace(/[^\p{L}\s]/gu, '')
         .replace(/\s+/g, ' ')
