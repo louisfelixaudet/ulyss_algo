@@ -55,6 +55,7 @@ function cleanText(text) {
 
 const count = (text, word) => text.filter(item => item === word).length;
 
+// nombre de fois que le mot apparait dans un document
 function TF(text) {
     let tabWord = text.split(" ");
     let dictTF = {};
@@ -72,6 +73,10 @@ function TF(text) {
 
     return dictTF;
 }
+
+// --------------------
+
+// nombre de fois que le mot apparait dans tous les documents
 
 function df(t, allDoc) {
     let countWord = 0;
@@ -95,6 +100,7 @@ function IDF() {
 
 }
 
+// ----------------
 
 export default function TF_IDF(text) {
 

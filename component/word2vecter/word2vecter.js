@@ -154,6 +154,7 @@ function step(wordv, voisin, negatifs, taux) {
     // cible true et false
     const TV = 1;
     const TN = 0;
+    
     // creer gv vecteur de correction de wordv
     let gv = [];
     wordv.forEach(dim => {
