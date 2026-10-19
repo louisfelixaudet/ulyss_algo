@@ -50,26 +50,27 @@
 
 
 */
-function KnuthShuffle(array) {
+export function KnuthShuffle(array1, array2) {
 
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = array1.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [array1[i], array1[j]] = [array1[j], array1[i]];
+        [array2[i], array2[j]] = [array2[j], array2[i]];
     }
 
-    return array;
+    return {array1, array2};
 }
 
-function sigmoid(x) {
+export function sigmoid(x) {
     return 1 / (1 + Math.exp(-x));
 }
 
 
-const neuron = (x, w, b) => sigmoid(x.reduce((s, xi, i) => {
+export const neuron = (x, w, b) => sigmoid(x.reduce((s, xi, i) => {
    return s + xi * w[i]
 }, b));
 
-function learning(resp, neuronR, valueIn, w, a, b){
+export function learning(resp, neuronR, valueIn, w, a, b){
     let error = resp - neuronR;
 
     w.forEach((weight, k) => {
@@ -82,20 +83,22 @@ function learning(resp, neuronR, valueIn, w, a, b){
 }
 
 
-function trainingNeuron(xData, w, b, resp, a = 0.5, epoques = 100){
+export function trainingNeuron(xData, w, b, resp, a = 0.5, epoques = 100){
     let dataTraining = xData;
+    let respTraining = resp
     let copieWeight = w
 
     for (let i = 0; i < epoques; i++) {
         xData.forEach((values, j) => {
             let nResalt = neuron(values, copieWeight, b);
-            lr = learning(resp[j], nResalt, values, copieWeightw, a);
+            let lr = learning(respTraining[j], nResalt, values, copieWeight, a, b);
             b = lr.b;
             copieWeight = lr.w;
         });
 
-        dataTraining = KnuthShuffle(xData);
-
+        let arrays = KnuthShuffle(dataTraining, respTraining);
+        dataTraining = arrays.array1;
+        respTraining = arrays.array2;
     }
 
     return { w: copieWeight, b };

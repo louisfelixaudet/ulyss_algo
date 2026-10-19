@@ -5,11 +5,11 @@
     data = [text1, text2, text3];
 */
 
-function getRandomInt(min, max) {
+export function getRandomInt(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function makeDict(data) {
+export function makeDict(data) {
     let trashID = [];
     let trashName = new Map();
     let dict = [];
@@ -41,7 +41,7 @@ function makeDict(data) {
     return { mots: dict, index };
 }
 
-function createPaires(data, index, fenetre = 2) {
+export function createPaires(data, index, fenetre = 2) {
     let words = [];
     data.forEach(text => {
 
@@ -76,7 +76,7 @@ function createPaires(data, index, fenetre = 2) {
     */
 }
 
-function createTab(Dict, D = 75) {
+export function createTab(Dict, D = 75) {
     const W1 = [];
     const W2 = [];
 
@@ -110,7 +110,7 @@ function createTab(Dict, D = 75) {
 }
 
 // score multiplication de deux vecteurs (donne un nombre)
-function dot(a, b) {
+export function dot(a, b) {
     let score = 0;
     a.forEach((vd, i) => {
         score += vd * b[i];
@@ -119,7 +119,7 @@ function dot(a, b) {
 }
 
 // augmente ou diminue un vecteur selon n
-function scale(a, n) {
+export function scale(a, n) {
     let b = [];
     a.forEach(vd => {
         b.push(vd * n);
@@ -128,7 +128,7 @@ function scale(a, n) {
 }
 
 // additionne deux vecteurs de meme longueur
-function add(a, b) {
+export function add(a, b) {
     let newV = [];
     a.forEach((vd, i) => {
         newV.push(vd + b[i]);
@@ -136,11 +136,11 @@ function add(a, b) {
     return newV;
 }
 
-function sigmoid(x) {
+export function sigmoid(x) {
     return 1 / (1 + Math.exp(-x));
 }
 
-function KnuthShuffle(array) {
+export function KnuthShuffle(array) {
 
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -150,7 +150,7 @@ function KnuthShuffle(array) {
     return array;
 }
 
-function step(wordv, voisin, negatifs, taux) {
+export function step(wordv, voisin, negatifs, taux) {
     // cible true et false
     const TV = 1;
     const TN = 0;
@@ -185,7 +185,7 @@ function step(wordv, voisin, negatifs, taux) {
 
 }
 
-function getNegatif(centre, voisins, N, k) {
+export function getNegatif(centre, voisins, N, k) {
     let negatifs = [];
     let r = 0;
     for (let i = 0; negatifs.length < k; i++) {
@@ -197,7 +197,7 @@ function getNegatif(centre, voisins, N, k) {
     return negatifs;
 }
 
-function training(W1, W2, paires, nbNegatif = 5, epoques = 100, taux = 0.05) {
+export function training(W1, W2, paires, nbNegatif = 5, epoques = 100, taux = 0.05) {
     // params
     let lr = 0;
 

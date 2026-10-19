@@ -1,0 +1,15 @@
+{
+  "name": "ulyss_algo",
+  "version": "1.0.0",
+  "description": "algo ML for ulyss app",
+  "author": "lf",
+  "type": "module",
+  "main": "regression_logistique.js",
+  "scripts": {
+    "startReg": "node regression_logistique.js",
+    "startWVTest": "node component/word2vecter/test_word2vecter.js",
+    "exploreWV": "node component/word2vecter/explore_word2vecter.js",
+    "startNTest": "node component/neurone/test_neurone.js",
+    "exploreN": "node component/neurone/explore_neurone.js"
+  }
+}

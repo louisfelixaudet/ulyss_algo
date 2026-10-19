@@ -50,11 +50,8 @@ import * as params from "../../param/paramRegressionLogistique/paramEngagement";
     param: nbQuizzRepondu, nbQuizzMontrer
 
     exemple: (34, 56) => 34 / 56 = 0,60
-*/
 
-const engagementQuizz = (nbQuizzRepondu, nbQuizzMontrer) => (nbQuizzRepondu / nbQuizzMontrer) * 100;
 
-/* 
     Fonction: cacule engagement
 
     name: engagement
@@ -75,6 +72,14 @@ const engagementQuizz = (nbQuizzRepondu, nbQuizzMontrer) => (nbQuizzRepondu / nb
     
     = 527.45;
 */ 
+
+// calcule de categorie de 
+
+
+
+// calcule de lengagement
+
+const engagementQuizz = (nbQuizzRepondu, nbQuizzMontrer) => (nbQuizzRepondu / nbQuizzMontrer) * 100;
 
 export default function engagement(like, view, comPos, comNeg, partage, nbQuizzRepondu, nbQuizzMontrer, age) {
     return (like * params.COEFLIKE +
