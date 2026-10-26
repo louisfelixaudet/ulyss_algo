@@ -1,11 +1,13 @@
+import { dot } from "#word2vecter";
+
 // fonction
 // token message
-function tokenisation(message) {
+export function tokenisation(message) {
   return message.toLowerCase().split(/\s+/).filter(Boolean);
 }
 
 // vectorisation
-function vectorisation(message, vocabulaire) {
+export function vectorisation(message, vocabulaire) {
   const tokens = tokenisation(message);
   const vecteur = [];
   for (const word of vocabulaire) {
@@ -13,6 +15,8 @@ function vectorisation(message, vocabulaire) {
   }
   return vecteur;
 }
+
+export const cosinus = (a, b) => dot(a, b) / (Math.sqrt(dot(a, a)) * Math.sqrt(dot(b, b)) || 1);
 
 // calculer distance
 function distance(v1, v2) {
@@ -48,16 +52,28 @@ function plusFrequent(labels) {
 }
 
 // prediction
-export default function knnPrediction(vocabulaire, message, data, k) {
+export default function knnPrediction(message, data, k, indice = 0) {
+
+  const dossier = [];
+  
+  for (const ligne of data) {
+    for (const word of tokenisation(ligne[indice])) {
+      dossier.push(word);
+    }
+  }
+  
+  const vocabulaire = [...new Set(dossier)].sort();
+  
   const vecteurM = vectorisation(message, vocabulaire);
   const listeDU = [];
   const listephrase = [];
 
   for (const ligne of data) {
-    const vecteurMD = vectorisation(ligne[0], vocabulaire);
-    const distanceEntreVmdEtVm = distance(vecteurM, vecteurMD);
-    listephrase.push([distanceEntreVmdEtVm, ligne[0]]);
-    listeDU.push([distanceEntreVmdEtVm, ligne[1]]);
+    const vecteurMD = vectorisation(ligne[indice], vocabulaire);
+    // 1 - cosinus: 0 = identiques, le tri croissant garde les plus proches
+    const distanceEntreVmdEtVm = 1 - cosinus(vecteurM, vecteurMD);
+    listephrase.push([distanceEntreVmdEtVm, ligne[indice]]);
+    listeDU.push([distanceEntreVmdEtVm, ligne[indice + 1]]);
   }
 
   listeDU.sort(comparerTuples);

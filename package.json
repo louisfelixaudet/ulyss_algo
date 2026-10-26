@@ -5,10 +5,20 @@
   "author": "lf",
   "type": "module",
   "main": "regression_logistique.js",
+  "imports": {
+    "#param/*": "./param/*",
+    "#word2vecter": "./component/word2vecter/word2vecter.js",
+    "#tfidf": "./component/TF-IDF_COS/TF_IDF.js",
+    "#knn": "./component/KNN/fonctionKNN.js",
+    "#neurone": "./component/neurone/neurone.js"
+  },
   "scripts": {
     "startReg": "node regression_logistique.js",
     "startWVTest": "node component/word2vecter/test_word2vecter.js",
     "exploreWV": "node component/word2vecter/explore_word2vecter.js",
+    "startSCTest": "node component/regression_logistique/test/testSousCat.js",
+    "startETest": "node component/regression_logistique/test/testEngagement.js",
+    "startKNN": "node KNN.js",
     "startNTest": "node component/neurone/test_neurone.js",
     "exploreN": "node component/neurone/explore_neurone.js"
   }

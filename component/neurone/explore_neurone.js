@@ -9,7 +9,7 @@
 
 import { genererDonnees } from "./donnees_neurone.js";
 
-const N = await import(process.env.NEURONE_PATH || "./neurone.js");
+const N = await import(/*process.env.NEURONE_PATH ||*/ "./neurone.js");
 
 const args = process.argv.slice(2);
 const opt = (nom, defaut) => {

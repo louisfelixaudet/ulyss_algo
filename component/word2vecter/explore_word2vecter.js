@@ -28,7 +28,7 @@ const cosinus = (a, b) => W.dot(a, b) / (Math.sqrt(W.dot(a, a)) * Math.sqrt(W.do
 const lexique = genererLexique();
 const { mots: dict, index } = W.makeDict(lexique);
 const paires = W.createPaires(lexique, index, 2);
-const [W1, W2] = W.createTab(dict, DIM);
+const { W1, W2 } = W.createTab(dict, DIM);
 console.log(`Entrainement: ${dict.length} mots, ${paires.length} paires, ${EPOQUES} epoques, dim ${DIM}...`);
 const { W1: vecs } = W.training(W1, W2, paires, 5, EPOQUES, 0.05);
 

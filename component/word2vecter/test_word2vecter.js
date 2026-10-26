@@ -169,24 +169,24 @@ test("plus la fenetre est grande, plus il y a de paires", () => {
 // ---------- createTab ----------
 console.log("\ncreateTab");
 test("dimensions W1 et W2", () => {
-    const [W1, W2] = W.createTab(["a", "b", "c"], 10);
+    const { W1, W2 } = W.createTab(["a", "b", "c"], 10);
     assertEq(W1.length, 3);
     assertEq(W2.length, 3);
     W1.concat(W2).forEach(v => assertEq(v.length, 10));
 });
 test("W1 initialise dans [-0.5/D, 0.5/D], W2 a zero", () => {
     const D = 20;
-    const [W1, W2] = W.createTab(new Array(50).fill("x"), D);
+    const { W1, W2 } = W.createTab(new Array(50).fill("x"), D);
     W1.forEach(v => v.forEach(x => assert(Math.abs(x) <= 0.5 / D, `hors bornes ${x}`)));
     W2.forEach(v => v.forEach(x => assertEq(x, 0)));
     assert(W1.some(v => v.some(x => x !== 0)), "W1 tout a zero");
 });
 test("dimension par defaut 75", () => {
-    const [W1] = W.createTab(["a"]);
+    const { W1 } = W.createTab(["a"]);
     assertEq(W1[0].length, 75);
 });
 test("lignes independantes (pas de reference partagee)", () => {
-    const [W1, W2] = W.createTab(["a", "b"], 4);
+    const { W1, W2 } = W.createTab(["a", "b"], 4);
     W2[0][0] = 99;
     assertEq(W2[1][0], 0);
     assert(W1[0] !== W1[1]);
@@ -241,7 +241,7 @@ console.log("\ntraining");
 const { mots, index } = W.makeDict(lexique);
 const paires = W.createPaires(lexique, index, 2);
 const D = 30;
-const [W1, W2] = W.createTab(mots, D);
+const { W1, W2 } = W.createTab(mots, D);
 const W1Initial = W1.map(v => [...v]);
 
 // score moyen sigmoid(W1[c] . W2[v]) sur les vraies paires
@@ -280,7 +280,7 @@ test("le score des vraies paires augmente", () => {
 console.log("\nsemantique (indicatif)");
 test("mots d'un meme theme plus proches en moyenne que mots de themes differents", () => {
     // entrainement un peu plus long pour stabiliser
-    const [A1, A2] = W.createTab(mots, D);
+    const { W1: A1, W2: A2 } = W.createTab(mots, D);
     const r = W.training(A1, A2, paires, 5, 30, 0.05);
     const themes = {
         sport: ["joueur", "equipe", "match", "terrain", "stade", "gardien", "coureuse"],

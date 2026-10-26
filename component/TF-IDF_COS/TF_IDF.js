@@ -139,8 +139,20 @@ export default function TF_IDF(text) {
     });
 
     return TF_IDFmatrice;
-
 }
+
+
+export const getValueFinal = (matriceTFIDF) => {
+    let dataValues = {};
+    matriceTFIDF.forEach(word => {
+        let NB = 0;
+        word.forEach(value => {
+            NB += value
+        });
+        dataValues[word] = NB;
+    });
+    return dataValues;
+} 
 
 
 

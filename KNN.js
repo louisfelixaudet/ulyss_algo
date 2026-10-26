@@ -1,17 +1,24 @@
-import { knnPrediction as knn } from "./component/KNN/fonctionKNN.js";
-// cree un vocabulaire
-const dossier = [];
+import knnPrediction from "./component/KNN/fonctionKNN.js";
 
-for (const ligne of data) {
-  for (const word of knn.tokenisation(ligne[0])) {
-    dossier.push(word);
-  }
-}
+// data: [commentaire, label]
+const data = [
+  ["super video merci beaucoup", 1],
+  ["tres bien explique j ai tout compris", 1],
+  ["excellent contenu continue comme ca", 1],
+  ["j adore cette chaine", 1],
+  ["bravo c est clair et utile", 1],
+  ["merci cette explication est parfaite", 1],
+  ["genial j ai enfin compris", 1],
+  ["video tres interessante", 1],
+  ["nul je n ai rien compris", 0],
+  ["tout est faux dans cette video", 0],
+  ["perte de temps explication confuse", 0],
+  ["tres mauvais contenu", 0],
+  ["c est faux et mal explique", 0],
+  ["je deteste cette chaine", 0],
+  ["video ennuyeuse et inutile", 0],
+  ["arretez de dire n importe quoi", 0],
+];
 
-const vocabulaire = [...new Set(dossier)].sort();
-
-//console.log(vocabulaire);
-//console.log(vectorisation(data[2][0], vocabulaire));
-//console.log(tokenisation(data[2][0]));
 let message = "tout est faux!!!";
-console.log(knn.knnPrediction(vocabulaire, message, data, 3));
+console.log(knnPrediction(message, data, 3));

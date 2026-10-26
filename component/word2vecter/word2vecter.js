@@ -92,7 +92,7 @@ export function createTab(Dict, D = 75) {
         W1.push(listDW1);
         W2.push(listDW2);
     }
-    return [W1, W2];
+    return { W1, W2 };
 
     /*
 
