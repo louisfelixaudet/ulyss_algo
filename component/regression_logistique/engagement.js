@@ -137,7 +137,7 @@ export function video2Engagement(allVideo, allCom){
 
 // training for commentaire
 // [idVideo, commentaire, type]
-export function sortCom(allCom){
+export function sortCommentaire(allCom){
     const UndefinedCom = allCom.filter((com) => com[2] === undefined);
     const definedCom = allCom.filter((com) => com[2] !== undefined);
     let newCom = [];

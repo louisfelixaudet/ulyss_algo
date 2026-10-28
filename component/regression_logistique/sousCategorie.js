@@ -64,7 +64,7 @@ export function newDataCat(data, tabTFIDF) {
 
 }
 
-
+// reentrainement quand necessaire sur tous les donnees
 export function vecterTab(dataImp) {
     let { mots, index } = vecter.makeDict(dataImp);
     let paires = vecter.createPaires(mots, index);
