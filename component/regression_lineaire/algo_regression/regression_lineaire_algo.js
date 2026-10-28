@@ -1,0 +1,4 @@
+/*
+    algo regression lineaire  
+*/
+
