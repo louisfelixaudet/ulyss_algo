@@ -18,6 +18,9 @@
     "exploreWV": "node component/word2vecter/explore_word2vecter.js",
     "startSCTest": "node component/regression_logistique/test/testSousCat.js",
     "startETest": "node component/regression_logistique/test/testEngagement.js",
+    "startRLTest": "node component/regression_lineaire/algo_regression/test/test_regression.js",
+    "verifRL": "node component/regression_lineaire/algo_regression/test/verif_poids.js",
+    "exploreRL": "node component/regression_lineaire/algo_regression/test/explore_poids.js",
     "startKNN": "node KNN.js",
     "startNTest": "node component/neurone/test_neurone.js",
     "exploreN": "node component/neurone/explore_neurone.js"
