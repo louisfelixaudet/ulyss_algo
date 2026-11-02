@@ -10,7 +10,11 @@
     "#word2vecter": "./component/word2vecter/word2vecter.js",
     "#tfidf": "./component/TF-IDF_COS/TF_IDF.js",
     "#knn": "./component/KNN/fonctionKNN.js",
-    "#neurone": "./component/neurone/neurone.js"
+    "#neurone": "./component/neurone/neurone.js",
+    "#regressionLineaire": "./component/regression_lineaire/algo_regression/regression_lineaire_algo.js",
+    "#connaissance": "./component/regression_lineaire/connaissance.js",
+    "#engagement": "./component/regression_lineaire/engagement.js",
+    "#sousCategorie": "./component/regression_lineaire/sousCategorie.js"
   },
   "scripts": {
     "startReg": "node regression_logistique.js",
