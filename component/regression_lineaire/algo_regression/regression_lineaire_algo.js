@@ -47,6 +47,7 @@ erreurs = [
 ]
 
 x = [
+    video: [axe1, axe2, ...]
     [1, 2],
     [4, 3]
 ]
